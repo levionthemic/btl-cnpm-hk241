@@ -1,0 +1,141 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/print-create.css") 
+
+block main 
+  +alert-error(5000)
+
+  .container 
+    .row 
+      .col-12 
+        h2 Tạo in ấn 
+    .row 
+      .col-12 
+        .inner-form.mb-5
+          .inner-left-content 
+            .inner-image 
+              img(src="/client/images/print-image.svg" alt="")
+            .inner-desc  
+              span Chi phí: <span>1000đ/tờ/đen trắng</span>
+              span Chi phí: <span>3000đ/tờ/màu</span>
+          .inner-right-content 
+            .inner-print-info
+              h5 Thông tin tạo in
+              form(
+                action="/print/create" 
+                method="POST"
+                enctype="multipart/form-data"
+              )
+                .row 
+                  .col-6
+                    div(class="form-group mb-3")
+                      label(for="printtype") Chọn loại in 
+                      select(class="form-select form-select-sm" name="printtype" required)
+                        option(selected value="blackwhite") In trắng đen
+                        option(value="colored") In màu
+                    div(class="form-group mb-3")
+                      label(for="pagenum") Số lượng tờ 1 bản
+                      input(
+                        type="text"
+                        class="form-control"
+                        name="pagenum"
+                        id="pagenum"
+                        placeholder="Số lượng tờ"
+                        required
+                      )
+                    div(class="form-group mb-3")
+                      label(for="print-machine") Chọn máy in 
+                      select(class="form-select form-select-sm" name="print-machine" required)
+                        option(selected disabled) -- Chọn máy in --
+                        each printer in printers
+                          option(value=printer.printerId) #{printer.name}
+                    .checkbox
+                      div(class="form-check")
+                        input(
+                          type="radio"
+                          class="form-check-input" 
+                          id="frontside"
+                          value="front"
+                          name="side"
+                          required
+                        )
+                        label(for="frontside" class="form-check-label") Mặt trước
+                      div(class="form-check")
+                        input(
+                          type="radio"
+                          class="form-check-input"
+                          id="backside"
+                          value="back"
+                          name="side"
+                          required
+                        )
+                        label(for="backside" class="form-check-label") Mặt sau
+                      div(class="form-check")
+                        input(
+                          type="radio"
+                          class="form-check-input"
+                          id="bothside"
+                          value="both"
+                          name="side"
+                          required
+                        )
+                        label(for="bothside" class="form-check-label") Hai mặt
+                  .col-6
+                    div(class="form-group mb-3")
+                      label(for="filename") Chọn file 
+                      input(
+                        type="file"
+                        class="form-control form-control-file"
+                        name="filename"
+                        id="filename"
+                        required
+                      )
+                    div(class="form-group mb-3")
+                      label(for="size") Khổ giấy 
+                      select(class="form-select form-select-sm" name="size" required)
+                        option(value="A0") A0
+                        option(value="A1") A1
+                        option(value="A2") A2
+                        option(value="A3") A3
+                        option(selected value="A4") A4
+                    div(class="form-group")
+                      label(for="copy") Số lượng bản in
+                      input(
+                        type="text"
+                        class="form-control"
+                        placeholder="Vui lòng chọn"
+                        name="copy"
+                        id="copy"
+                        required
+                      )
+
+                .inner-print-checkout 
+                  .row 
+                    .col-12 
+                      h5.mt-2 Thanh toán
+                      .inner-item 
+                        span Số lượt in cần dùng:
+                        .num_page
+                          span= num_page
+                      .inner-item 
+                        span Giá bìa tổng:
+                        .bonus_price
+                          span #{(bonus_price).toLocaleString()}<sup>đ</sup>
+                      .inner-item 
+                        span Tổng tiền:
+                        .total_price
+                          span #{(total_price).toLocaleString()}<sup>đ</sup> 
+                .inner-print-button
+                  .row.text-center
+                    .col-12
+                      div(class="form-group d-flex justify-content-center mt-4 mb-3")
+                        button(
+                          type="submit"
+                          class="btn submit-button"
+                        ) In ấn
+                      b Thời gian dự kiến: 24h
+
+  script(src="/client/js/print-create.js") 
+

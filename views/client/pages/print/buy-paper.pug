@@ -1,0 +1,95 @@
+extends ../../layouts/default.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/print-buy-paper.css")
+
+block main 
+  .container 
+    .row  
+      .col-12 
+        h2 Mua lượt in 
+    
+    .row 
+      .col-12 
+        .inner-wrap 
+          .inner-above
+            .inner-image 
+              img(src="/client/images/paper-brand.png" alt="")
+              h5 Chi phí: <span>1,000<sup>đ</sup>/lượt in</span>
+            .inner-content 
+              .inner-quantity 
+                .inner-item 
+                  span Mua lẻ (1 lượt in) 
+                  .inner-counter 
+                    button(type="button" class="minus1")
+                      <svg width="24" height="4" viewBox="0 0 24 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 2H22" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                      </svg>
+                    .inner-number1 0
+                    button(type="button" class="plus1") 
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22L12 2" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M2 12H22" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                      </svg>
+                .inner-item 
+                  span Mua sĩ (50 lượt in)
+                  .inner-counter 
+                    button(type="button" class="minus2")
+                      <svg width="24" height="4" viewBox="0 0 24 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 2H22" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                      </svg>
+                    .inner-number2 0
+                    button(type="button" class="plus2") 
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22L12 2" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M2 12H22" stroke="#C22026" stroke-width="4" stroke-linecap="round"/>
+                      </svg>
+              h5 Tổng tiền: <span>0<sup>đ</sup></span>   
+                    
+
+          .inner-below
+            h5 Vui lòng chọn phương thức thanh toán 
+            .inner-list 
+              .form-check
+                input(
+                  type="radio"
+                  class="form-check-input"
+                  name="purchase"
+                  id="momo"
+                )
+                label(for="momo")
+                  img(src="/client/images/momo-1.png" alt="")
+              .form-check 
+                input(
+                  type="radio"
+                  class="form-check-input"
+                  name="purchase"
+                  id="bkpay"
+                )
+                label(for="bkpay")
+                  img(src="/client/images/bkpay.jpg" alt="")
+              .form-check 
+                input(
+                  type="radio"
+                  class="form-check-input"
+                  name="purchase"
+                  id="vnpay"
+                )
+                label(for="vnpay")
+                  img(src="/client/images/vnpay.jpg" alt="")
+            .form-check 
+              input(
+                type="checkbox"
+                class="form-check-input"
+                name="agree"
+                id="agree"
+              )
+              label(for="agree") Tôi đã đọc và đồng ý với <b>Điều khoản & Điều kiện</b>
+            button(type="button" class="confirm-button") Xác nhận đơn hàng
+        
+  block script
+    script(src="/client/js/print-buy-paper.js")
+
+
+
+

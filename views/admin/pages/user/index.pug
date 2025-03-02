@@ -1,0 +1,73 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/user-index.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+  
+  .container-fluid 
+    .row.mb-4 
+      .col-12
+        .inner-title.my-3
+          h3 Tài khoản 
+
+    .row-my-5
+      .col-12 
+        table.table.table-hover.align-middle
+          thead 
+            tr.text-center 
+              th STT
+              th Tên tài khoản
+              th Mật khẩu 
+              th Họ và tên
+              th Ngày sinh
+              th MSSV
+              th Số lượt in còn lại
+              th Hành động
+          tbody
+            each userInfo, index in users
+              tr.text-center 
+                td #{(page - 1) * 20 + index + 1}
+                td #{userInfo.username}
+                td #{userInfo.password}
+                td #{userInfo.fullname}
+                td #{userInfo.birthday}
+                td #{userInfo.studentId}
+                td #{userInfo.printPage}
+                td 
+                  .inner-note
+                    a(href=`${prefixAdmin}/user/edit/${userInfo._id}`)
+                      img(src="/admin/images/printer-note-icon-1.svg" alt="")
+                    form(
+                      method="POST"
+                      action=`${prefixAdmin}/user/delete/${userInfo._id}`
+                    )
+                      button(
+                        type="submit"
+                        class="btn p-0"
+                      )
+                        img(src="/admin/images/printer-note-icon-2.svg" alt="")
+
+          
+    .row.my-3.justify-content-center.text-center
+      .col-5.d-flex.justify-content-center 
+        ul.pagination.gap-3
+          li.page-item
+            a.page-link(href=`#`)
+              span 
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M15 18L9 12L15 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+          each page, index in [...Array(totalPages)]
+            li.page-item.page-number
+              a.page-link(href=`#`) #{index + 1}
+          li.page-item
+            a.page-link(href=`#`)
+              span
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M9 18L15 12L9 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")   
+  script. 
+    const totalPages = "#{totalPages}"
+    const prefixAdmin = "#{prefixAdmin}"

@@ -1,0 +1,55 @@
+header.header 
+  .container-fluid
+    .row 
+      .col-12 
+        .header-wrap-1
+          .header-logo  
+            img(src="/client/images/logo.png" alt="")
+          ul.header-menu  
+            li 
+              a(href="/home") Trang chủ
+            li 
+              a(href="/about") Giới thiệu
+            li 
+              a(href="/print/buy-paper") Mua lượt in
+            li 
+              a(href="/print/create") In ấn
+            li 
+              a(href="/user/my-account") Hồ sơ
+          .header-action 
+            .dropdown
+              button(
+                class="btn dropdown-toggle d-flex align-items-center gap-2" 
+                type="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+              )
+                .header-login 
+                  .inner-avatar 
+                    img(src=user.avatar, alt="")
+                  .inner-name 
+                    span #{user.username}
+              ul.dropdown-menu
+                li
+                  a(class="dropdown-item" href="/user/my-account") Hồ sơ
+                li
+                  hr(class="dropdown-divider")
+                li
+                  a(class="dropdown-item" href="/user/logout") Đăng xuất
+            .vertical-divider 
+            .header-cart
+    //- .row 
+    //-   .col-12
+    //-     .header-wrap-2 
+    //-       ul.header-menu  
+    //-         li 
+    //-           a(href="/home") Trang chủ
+    //-         li 
+    //-           a(href="/about") Giới thiệu
+    //-         li 
+    //-           a(href="/print/buy-paper") Mua lượt in
+    //-         li 
+    //-           a(href="/print/create") In ấn
+    //-         li 
+    //-           a(href="/user/my-account") Hồ sơ 
+                

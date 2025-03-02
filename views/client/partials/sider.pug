@@ -1,0 +1,33 @@
+.sider 
+  .sider-hello 
+    span Xin chào 
+  .sider-info 
+    a(href=`/user/my-account`)
+      .inner-avatar 
+        img(src=user.avatar alt="")
+      .inner-info 
+        h6 #{user.fullname}
+        span #{user.email}
+  ul.sider-menu   
+    li.sider-menu-item 
+      a(href="/user/my-account")
+        .inner-icon 
+          img(src="/client/images/sider-menu-icon-1.svg" alt="")
+        .inner-title Hồ sơ tài khoản
+    li.sider-menu-item 
+      a(href="/user/log-order?page=1")
+        .inner-icon 
+          img(src="/client/images/sider-menu-icon-2.svg" alt="")
+        .inner-title Lịch sử đặt in
+    //- li.sider-menu-item 
+    //-   a(href="/user/notification")
+    //-     .inner-icon 
+    //-       img(src="/client/images/sider-menu-icon-3.svg" alt="")
+    //-     .inner-title Thông báo
+    li.sider-menu-item 
+      a(href="/user/logout")
+        .inner-icon 
+          img(src="/client/images/sider-menu-icon-5.svg" alt="")
+        .inner-title Đăng xuất
+
+    

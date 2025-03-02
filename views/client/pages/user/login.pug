@@ -1,0 +1,80 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/user-login.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container
+    .row.justify-content-center 
+      .col-8
+        .inner-logo 
+          img(src="/client/images/logoBK.png" alt="")
+    
+        .inner-login  
+          .inner-title 
+            h1 ĐĂNG NHẬP 
+          form(
+            action="/user/login"
+            method="POST"
+          ) 
+              div(class="form-group input-group")
+                label(for="username") 
+                  img(src="/client/images/user.svg", alt="")
+                input(
+                  type="text"
+                  id="username"
+                  class="form-control"
+                  placeholder="Vui lòng nhập username"
+                  name="username"
+                  required
+                )
+              div(class="form-group input-group")
+                label(for="password") 
+                  img(src="/client/images/lock.svg", alt="")
+                input(
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Vui lòng nhập mật khẩu"
+                  name="password"
+                  required
+                )
+              div(class="check-a")
+                div(class="a-options")
+                  a(href="") Quên mật khẩu 
+              div(class="form-group")
+                button(
+                  type="submit"
+                  class="button"
+                ) Đăng nhập
+          .inner-or OR 
+          .inner-options 
+            .inner-option.inner-facebook
+              .inner-icon 
+                img(src="/client/images/facebook-login-icon.svg" alt="")
+              .inner-name 
+                span Facebook
+            .inner-option.inner-twitter
+              .inner-icon 
+                img(src="/client/images/twitter-login-icon.svg" alt="")
+              .inner-name Twitter
+
+          .inner-signup.mt-4 
+            | Chưa có tài khoản?
+            a(href="/user/signup") Đăng ký
+
+
+
+
+
+
+
+
+
+
+
+

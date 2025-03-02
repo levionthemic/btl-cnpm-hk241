@@ -1,0 +1,116 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/account-index.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  h1 Thông tin quản trị viên
+
+  .container-fluid
+    form(
+      action=`${prefixAdmin}/account/update?_method=PATCH`
+      method="POST"
+      enctype="multipart/form-data"
+    )
+      .row.justify-content-evenly
+        .col-5
+          div(class="form-group my-3")
+            label(for="fullname") Họ tên 
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="fullname"
+              name="fullname"
+              value=user.fullname
+              readonly
+              disabled
+            )
+          div(class="form-group my-3")
+            label(for="address") Địa chỉ
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="address"
+              name="address"
+              value=user.address
+            )
+          div(class="form-group my-3")
+            label(for="phone") Số điện thoại
+            input(
+              type="tel"
+              class="form-control mt-1"
+              id="phone"
+              name="phone"
+              value=user.phoneNumber
+            )
+          div(class="form-group my-3")
+            label(for="email") Gmail
+            input(
+              type="email"
+              class="form-control mt-1"
+              id="email"
+              name="email"
+              value=user.email
+            )
+        .col-5
+          div(class="form-group my-3")
+            label(class="d-block") Giới tính
+            input(
+              type="radio"
+              class="btn-check"
+              id="sex1"
+              name="sex"
+              value="male"
+              checked=(user.sex == "male" ? true : false)
+              disabled
+            )
+            label(for="sex1" class="btn btn-outline-danger button mt-1") Nam
+            input(
+              type="radio"
+              class="btn-check"
+              id="sex2"
+              name="sex"
+              value="female"
+              checked=(user.sex == "female" ? true : false)
+              disabled
+            )
+            label(for="sex2" class="btn btn-outline-danger button mx-3 mt-1") Nữ
+          div(class="form-group" upload-image)
+            label(for="avatar") Ảnh đại diện
+            input(
+              type="file"
+              class="form-control-file form-control"
+              id="avatar"
+              name="avatar"
+              accept="image/*"
+              upload-image-input 
+              placeholder="Vui lòng thêm hình ảnh"
+            )
+            img(
+              src=""
+              upload-image-preview
+              class="image-preview"
+            )
+          div(class="form-group my-3")
+            label(for="role") Trạng thái
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="role"
+              name="role"
+              value="Quản trị viên"
+              readonly
+            )
+          div(class="form-group my-3")
+            .row.justify-content-center
+              .col-6.d-flex.justify-content-center
+                button(
+                  type="submit"
+                  class="btn btn-danger w-75 button"
+                ) Cập nhật
+  script.
+    const prefixAdmin = "#{prefixAdmin}"

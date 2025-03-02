@@ -1,0 +1,55 @@
+extends ../../layouts/default.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/checkout-buy-paper-index.css")
+
+block main  
+  .container 
+    .row 
+      .col-12 
+        h2.my-4 Thanh toán 
+    .row 
+      .col-12 
+        .inner-wrap-buy-paper 
+          .inner-left
+            .inner-filename 
+              | Giấy A4
+            .inner-fileimage 
+              img(src="/client/images/paper-brand.png", alt="")
+            .inner-note   
+              | Thời gian dự kiến: 24 giờ
+          .inner-right 
+            .inner-info-section 
+              h5 Thông tin thanh toán
+              .inner-item 
+                span Giấy được sử dụng:
+                span Giấy A4 IK Plus 70 gsm
+              .inner-item 
+                span Số lượt in (lẻ):
+                span #{num1} 
+              .inner-item 
+                span Đơn giá: 
+                span 1,000<sup>đ</sup>
+              .inner-item 
+                span Số lượt in (sĩ):
+                span #{num2}
+              .inner-item 
+                span Đơn giá: 
+                span 50,000<sup>đ</sup>
+              .inner-item 
+                span Phương thức thanh toán:
+                span #{payment_method}
+            .inner-total-price-section 
+              .inner-item 
+                span Tổng tiền: 
+                span #{total_price || 0}<sup>đ</sup>
+            form(
+              method="POST", 
+              action="/print/buy-paper/post-buypaper"
+            )
+              input(type="hidden", name="totalPage", value=`${totalpage}`)
+              .inner-checkout-button 
+                button(
+                  type="submit"
+                  class="btn"
+                ) Thanh toán

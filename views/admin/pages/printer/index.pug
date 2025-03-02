@@ -1,0 +1,145 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/printer-index.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container-fluid 
+    .row.my-5
+      .col-12 
+        .inner-statistics
+          .inner-item 
+            .inner-number #{printerCount}
+            .inner-desc Máy
+          .inner-item 
+            .inner-number #{countStandby}
+            .inner-desc Trống
+          .inner-item 
+            .inner-number #{countOn}
+            .inner-desc Bật
+          .inner-item 
+            .inner-number #{countUsing}
+            .inner-desc Đang sử dụng
+
+    .row.my-3 
+      .col-12 
+        .inner-actions   
+          .inner-filters 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                | Tình trạng
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">-- Tất cả --</a></li>
+                <li><a class="dropdown-item" href="#">Đang sử dụng</a></li>
+                <li><a class="dropdown-item" href="#">Đang trống</a></li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                | Hoạt động
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="# ">-- Tất cả --</a></li>
+                <li><a class="dropdown-item" href="#">Bật</a></li>
+                <li><a class="dropdown-item" href="#">Tắt</a></li>
+              </ul>
+            </div>
+          a(
+            class="inner-button"
+            href=`${prefixAdmin}/printer/create`
+          )
+            img(src="/admin/images/printer-add-icon.svg" alt="")
+            | Thêm
+
+    .row.my-5
+      .col-12 
+        table.table.table-hover.align-middle.table-bordered
+          thead   
+            tr.text-center
+              th.col-1 STT
+              th.col-3 Sản phẩm
+              th.col-1 Vị trí
+              th.col-3 Giấy in
+              th.col-2 Tình trạng
+              th.col-2 Hoạt động
+              th.col-2 Ghi chú
+          tbody 
+            each printer, index in printers
+              tr
+                td.text-center #{(page - 1) * 5 + index + 1}
+                td.inner-product 
+                  .inner-image  
+                    img(src=printer.thumbnail alt="")
+                  .inner-name 
+                    b #{printer.name}
+                td.text-center #{printer.location}
+                td.text-center #{printPapers[(page - 1) * 5 + index]}
+                td
+                  .inner-status #{printer.status == "standby" ? "Đang trống" : "Đang sử dụng"}
+                td 
+                  .inner-power
+                    .inner-power-list 
+                      .inner-power-item
+                        input(
+                          type="radio"
+                          class="btn-check"
+                          id=("on" + index)
+                          name=("power"+index)
+                          checked=(printer.power == "on" ? true : false)
+                          readonly
+                          disabled
+                        ) 
+                        label(for="on" class="btn btn-danger inner-button") ON
+                      .inner-power-item
+                        input(
+                          type="radio"
+                          class="btn-check"
+                          id=("off" + index)
+                          name=("power"+index)
+                          checked=(printer.power == "off" ? true : false)
+                          readonly
+                          disabled
+                        ) 
+                        label(for="off" class="btn btn-danger inner-button") OFF
+                td
+                  .inner-note
+                    a(href=`${prefixAdmin}/printer/edit/${printer._id}`)
+                      img(src="/admin/images/printer-note-icon-1.svg" alt="")
+                    form(
+                      method="POST"
+                      action=`${prefixAdmin}/printer/delete/${printer._id}`
+                    )
+                      button(type="submit" class="btn p-0")
+                        img(src="/admin/images/printer-note-icon-2.svg" alt="")
+          
+          
+
+    .row.my-3.justify-content-center.text-center
+      .col-5.d-flex.justify-content-center 
+        ul.pagination.gap-3
+          li.page-item
+            a.page-link(href=`#`)
+              span 
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M15 18L9 12L15 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+          each page, index in [...Array(totalPages)]
+            li.page-item.page-number
+              a.page-link(href=`#`) #{index + 1}
+          li.page-item
+            a.page-link(href=`#`)
+              span
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M9 18L15 12L9 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+
+
+  script(src="/admin/js/printer-index.js")  
+  script. 
+    const totalPages = "#{totalPages}"
+    const prefixAdmin = "#{prefixAdmin}"
+
+

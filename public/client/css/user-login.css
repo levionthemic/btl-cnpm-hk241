@@ -1,0 +1,141 @@
+.inner-logo {
+  text-align: center;
+}
+
+.inner-logo img{
+  width: 250px;
+  height: 250px;
+}
+
+.inner-login {
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px #C22026;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.inner-login .inner-title {
+  text-align: center;
+}
+
+.inner-login .input-group {
+  display: flex;
+  border-bottom: 1px solid #C22026;
+  margin-top: 50px;
+}
+
+.inner-login .input-group input {
+  border: none;
+  outline: none;
+}
+.inner-login .input-group input:focus {
+  box-shadow: none;
+}
+
+.inner-login .input-group img {
+  width: 40px;
+  height: 40px;
+}
+
+.inner-login .form-check {
+  margin-top: 10px;
+}
+
+.inner-login .form-check input:focus {
+  box-shadow: none;
+}
+
+.inner-login .check-a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.inner-login .check-a .form-check :hover {
+  cursor: pointer;
+}
+
+.inner-login .check-a .a-options {
+  position: relative;
+  top: 12px;
+  border-bottom: 1px solid #C22026;
+}
+.inner-login .check-a .a-options a {
+  text-decoration: none;
+  color: black;
+}
+
+.inner-login .button {
+  color: white;
+  background-color: #C22026;
+  border: none;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 500;
+  transition: transform 0.3s ease-in-out;
+}
+
+.inner-login .button:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+
+.inner-login .inner-or {
+  background-color: #C22026;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  margin: 30px 0;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.inner-login .inner-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inner-login .inner-options .inner-option {
+  display: flex;
+  align-items: center;
+  width: 49%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.inner-login .inner-options .inner-facebook {
+  background: #094791E3;
+}
+.inner-login .inner-options .inner-facebook .inner-name {
+  color: white;
+  font-size: 20px;
+  height: 100%;
+  flex: 1;
+}
+
+.inner-login .inner-options .inner-twitter {
+  background: #0FCCE9;
+}
+.inner-login .inner-options .inner-twitter .inner-name {
+  color: white;
+  font-size: 20px;
+  height: 100%;
+  flex: 1;
+}
+
+.inner-login .inner-signup a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+  border-bottom: 1px solid #C22026;
+}

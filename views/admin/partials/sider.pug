@@ -1,0 +1,63 @@
+.sider 
+  .sider-logo 
+    img(src="/admin/images/logo.png" alt="")
+  .sider-info 
+    a(href=`${prefixAdmin}/account`)
+      .inner-avatar 
+        img(src=user.avatar alt="")
+      .inner-info 
+        h6 #{user.fullname}
+        span #{user.email}
+  ul.sider-menu   
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/dashboard`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-1.svg" alt="")
+        .inner-title TRANG CHỦ
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/log?page=1`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-2.svg" alt="")
+        .inner-title LỊCH SỬ ĐĂNG NHẬP
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/printer?page=1`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-3.svg" alt="")
+        .inner-title QUẢN LÝ MÁY IN
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/config`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-4.svg" alt="")
+        .inner-title QUẢN LÝ CẤU HÌNH
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/user?page=1`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-5.svg" alt="")
+        .inner-title QUẢN LÝ TÀI KHOẢN
+    li.sider-menu-item 
+      a(href=`${prefixAdmin}/order?page=1`)
+        .inner-icon 
+          img(src="/admin/images/sider-menu-icon-6.svg" alt="")
+        .inner-title QUẢN LÝ ĐƠN IN
+    li.sider-menu-item 
+      a(href="/user/logout")
+        .inner-icon
+          img(src="/admin/images/sider-action-icon-3.svg" alt="")
+        .inner-title ĐĂNG XUẤT
+  
+  //- ul.sider-actions 
+  //-   //- li.sider-action 
+  //-   //-   .inner-icon 
+  //-   //-     img(src="/admin/images/sider-action-icon-1.svg" alt="")
+  //-   //-   .inner-title CÀI ĐẶT
+  //-   //- li.sider-action 
+  //-   //-   .inner-icon 
+  //-   //-     img(src="/admin/images/sider-action-icon-2.svg" alt="")
+  //-   //-   .inner-title TRỢ GIÚP
+  //-   li.sider-action 
+  //-     a(href="/user/logout")
+  //-       .inner-icon
+  //-         img(src="/admin/images/sider-action-icon-3.svg" alt="")
+  //-       .inner-title THOÁT
+
+    

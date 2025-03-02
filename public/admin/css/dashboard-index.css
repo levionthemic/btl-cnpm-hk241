@@ -1,0 +1,54 @@
+h2 {
+  color: var(--color-bg-1);
+}
+
+h4 {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+.inner-statistics {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 30px 0 50px 0;
+}
+
+.inner-statistics .inner-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 33.3333%;
+  border-right: 1px solid #ddd;
+  text-align: center;
+}
+
+.inner-statistics .inner-item:last-child {
+  border: none;
+}
+
+.inner-statistics .inner-item .inner-number {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.inner-statistics .inner-item .inner-desc {
+  color: #C4C4C4;
+}
+
+.inner-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+canvas#pieChart {
+  width: 30% !important;
+  height: auto !important;
+  /* aspect-ratio: 1/1 !important; */
+}
+canvas#barChart {
+  width: 60% !important;
+  height: auto !important;
+  /* aspect-ratio: 1.5/1 !important; */
+}

@@ -1,0 +1,55 @@
+extends ../../layouts/default.pug
+
+block style   
+  link(rel="stylesheet", href="/admin/css/dashboard-index.css")
+
+block main 
+  .container-fluid 
+    .row.my-4 
+      .col-12 
+        h2 #{pageTitle}
+
+    .row 
+      .col-12 
+        .inner-overview 
+          h4 Thống kê sơ bộ
+          .inner-statistics
+            .inner-item 
+              .inner-number #{totalUsers}
+              .inner-desc Tổng số người dùng
+            .inner-item 
+              .inner-number #{totalPrinters}
+              .inner-desc Tổng số máy in
+            .inner-item 
+              .inner-number #{totalLogin}
+              .inner-desc Tổng số lượt đăng nhập
+            .inner-item 
+              .inner-number #{totalPrintTimes}
+              .inner-desc Số lượt đặt in thành công hôm nay
+            
+        .inner-paper 
+          h4 Thống kê lượng giấy đã dùng
+          .inner-statistics
+            .inner-item 
+              .inner-number #{totalPrintedPaper[0].quantity}
+              .inner-desc Khổ A0
+            .inner-item 
+              .inner-number #{totalPrintedPaper[1].quantity}
+              .inner-desc Khổ A1
+            .inner-item 
+              .inner-number #{totalPrintedPaper[2].quantity}
+              .inner-desc Khổ A2
+            .inner-item 
+              .inner-number #{totalPrintedPaper[3].quantity}
+              .inner-desc Khổ A3
+            .inner-item 
+              .inner-number #{totalPrintedPaper[4].quantity}
+              .inner-desc Khổ A4
+          .inner-chart 
+            canvas(id="pieChart")
+            canvas(id="barChart")
+  
+  script(src="https://cdn.jsdelivr.net/npm/chart.js")
+  script(src="/admin/js/dashboard.js")
+  script.
+    const prefixAdmin = "#{prefixAdmin}"

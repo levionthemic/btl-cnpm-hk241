@@ -1,0 +1,61 @@
+extends ../../layouts/default.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/print-index.css")
+
+block main 
+  .container
+    .row 
+      .col-12 
+        h2 In ấn của tôi
+    .row
+      .col-12 
+        .inner-actions 
+          .inner-buttons 
+            button(class="btn create-button") 
+              a(href="/print/create") Tạo in ấn
+            button(class="btn favorite-button") Mục yêu thích
+          .inner-dropdowns
+            .dropdown 
+              button(class="btn" data-bs-toggle="dropdown" type="button")
+                p Tên sản phẩm 
+                img(src="/client/images/print-index-icon-1.svg" alt="")
+            .dropdown
+              button(class="btn" data-bs-toggle="dropdown" type="button")
+                p Trạng thái
+                img(src="/client/images/print-index-icon-1.svg" alt="")
+    
+    .row 
+      .col-12 
+        ul 
+          li.mb-5 
+            table.table.table-borderless.align-middle.mt-5 
+              thead 
+                tr.text-center
+                  th Sản phẩm
+                  th Trạng thái 
+              tbody   
+                tr.text-center
+                  td 
+                    .inner-wrap
+                      .inner-image 
+                        img(src="https://s3-alpha-sig.figma.com/img/ebf2/d1f4/78a45ba72eccccebcf203b39199f1a58?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mAycdRBZMitwsOHD5LUSfONM-eM81brDD2stDmFKxZRDWAYX3KD2iDpTLruNXd5ACEyhZ3lIr-RybekIkxZJHhHAlg~0fisjSN5f7gOAH9VaTWqkCYzkcEK-YTzeMKpCNKrPQDxJGXH4GbrfrD44-aRW6awusPKjtkB73KijzSf3gR3dViy7eBxlDr233ld9Plt7HhOLbSnsGzw0uAUSicPJMIHZ1ozt4xUv2M4A8YaCeHz2wYnVtWTDqd5k~c03uCmzc7kpG3lzbbGNvVaeomx481jEMrQHmwWW93MgJ2aveXAjSCzzZVQBC6dBYooBWmbqLogdJXwFkNjXfSAvrQ__" alt="")
+                      .inner-content
+                        h6 In Đồ Án Tốt Nghiệp 
+                        p Printing: <b> Máy in màu Canon Pixma</b>
+                        p In: <b>In màu</b>
+                        p In: <b>2 mặt</b>
+                  td 
+                    .inner-status Chưa xuất bản 
+            .inner-list
+              button(type="button") 
+                img(src="/client/images/print-index-icon-2.svg" alt="")
+              button(type="button") 
+                img(src="/client/images/print-index-icon-3.svg" alt="")
+              button(type="button") 
+                img(src="/client/images/print-index-icon-4.svg" alt="")
+                    
+
+                  
+
+

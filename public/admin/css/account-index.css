@@ -1,0 +1,13 @@
+h1 {
+  margin-left: 20px;
+  color: var(--color-bg-1);
+}
+
+.button {
+  /* background-color: var(--color-bg-1); */
+  border-radius: 20px;
+}
+
+label {
+  font-weight: 500;
+}

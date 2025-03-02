@@ -1,0 +1,193 @@
+extends ../../layouts/default-user.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/user-my-account.css")
+
+block main  
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container-fluid 
+    .row.my-4
+      .col-12
+        h2 #{pageTitle}
+
+    form(
+      action="/user/my-account/update?_method=PATCH", 
+      method="POST"
+      enctype="multipart/form-data"
+    )
+      .row.justify-content-evenly 
+        .col-5 
+          h4 Thông tin cá nhân
+          .inner-left-wrap 
+            div(class="form-group mb-3")
+              label(for="fullname") Họ và tên
+              input(
+                type="text"
+                class="form-control"
+                id="fullname"
+                name="fullname"
+                value=userInfo.fullname
+                disabled
+              )
+            .row.gap-4 
+              .col-6
+                div(class="form-group mb-3")
+                  label(for="studentId") MSSV
+                  input(
+                    type="text"
+                    class="form-control"
+                    id="studentId"
+                    name="studentId"
+                    maxLength="7"
+                    value=user.studentId
+                    disabled
+                  )
+              .col-4
+                div(class="form-group mb-3")
+                  label(class="d-block") Giới tính
+                  .inner-check
+                    .inner-check-item
+                      input(
+                        type="radio"
+                        class="btn-check"
+                        id="sex1"
+                        name="sex"
+                        value="male"
+                        checked=(user.sex == "male" ? true : false)
+                        disabled
+                      )
+                      label(for="sex1" class="btn btn-outline-danger button") Nam
+                    .inner-check-item
+                      input(
+                        type="radio"
+                        class="btn-check"
+                        id="sex2"
+                        name="sex"
+                        value="female"
+                        checked=(user.sex == "female" ? true : false)
+                        disabled
+                      )
+                      label(for="sex2" class="btn btn-outline-danger button") Nữ
+            div(class="form-group mb-3")
+              label(for="birthday") Ngày sinh
+              input(
+                type="date"
+                class="form-control"
+                id="birthday"
+                name="birthday"
+                value=userInfo.birthday
+                disabled
+              )
+            div(class="form-group mb-3")
+              label(for="address") Địa chỉ
+              input(
+                type="text"
+                class="form-control"
+                id="address"
+                name="address"
+                value=userInfo.address
+                disabled
+              )
+            div(class="form-group")
+              label(for="phoneNumber") Số điện thoại
+              input(
+                type="text"
+                class="form-control"
+                id="phoneNumber"
+                name="phoneNumber"
+                maxLength="10"
+                value=userInfo.phoneNumber
+                disabled
+              )
+          
+        .col-5
+          h4 Thông tin tài khoản
+          .inner-right-wrap 
+            .row 
+              .col-6
+                div(class="form-group mb-3")
+                  label(for="username") Username
+                  input(
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    value=userInfo.username
+                    disabled
+                  )
+              .col-6
+                div(class="form-group mb-3")
+                  label(for="password") Mật khẩu
+                  input(
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    value=userInfo.password
+                    disabled
+                  )
+            div(class="form-group mb-3")
+              label(for="email") Email
+              input(
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                value=userInfo.email
+                disabled
+              )
+            div(class="form-group mb-3" upload-image)
+              label(for="avatar") Ảnh đại diện
+              input(
+                type="file"
+                class="form-control-file form-control"
+                id="avatar"
+                name="avatar"
+                accept="image/*"
+                upload-image-input 
+                placeholder="Vui lòng thêm hình ảnh"
+                disabled
+              )
+              img(
+                src=user.avatar
+                upload-image-preview
+                class="image-preview"
+              )
+            .row 
+              .col-4
+                div(class="form-group")
+                  label(for="email") Số lượt in còn lại
+                  input(
+                    type="text"
+                    class="form-control no-focus"
+                    id="email"
+                    value=userInfo.printPage
+                    readonly
+                  )
+              .col-4
+                div(class="form-group")
+                  label(for="login-times") Số lượt đăng nhập
+                  input(
+                    type="text"
+                    class="form-control no-focus"
+                    id="login-times"
+                    value=userInfo.loginTimes
+                    readonly
+                  )
+      .row.justify-content-center.mb-4 
+        .col-5 
+          div(class="form-group")
+            .inner-button 
+              button(
+                type="button"
+                class="btn btn-outline-danger button update-button"
+              ) Chỉnh sửa
+              button(
+                type="submit"
+                class="btn btn-outline-danger button"
+                disabled
+              ) Cập nhật
+  script(src="/client/js/user-my-account.js")  

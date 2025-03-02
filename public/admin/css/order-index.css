@@ -1,0 +1,98 @@
+.nav {
+  border-bottom: 1px solid black;
+  gap: 80px;
+  padding-left: 20px;
+}
+
+.nav .nav-link {
+  color: black;
+}
+.nav .nav-link:hover {
+  border-bottom: 2px solid var(--color-bg-1);
+}
+
+.nav .nav-link.active {
+  border-bottom: 2px solid var(--color-bg-1);
+}
+
+.inner-actions .dropdown button {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--color-bg-1);
+  border-radius: 10px;
+  border: 1px solid var(--color-bg-1);
+}
+
+.inner-actions .dropdown button:hover {
+  background-color: var(--color-bg-1);
+  color: white;
+}
+
+.inner-actions .dropdown-menu {
+  border: 1px solid var(--color-bg-1);
+}
+
+.inner-actions .dropdown-menu .dropdown-item:hover {
+  background-color: #dd5f5f;
+  color: white;
+}
+
+.fail-button {
+  border: 1px solid var(--color-bg-1);
+  padding: 4px 6px;
+  border-radius: 50%;
+  color: var(--color-bg-1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.success-button {
+  border: 1px solid rgb(45, 204, 130);
+  color: rgb(45, 204, 130);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  padding: 4px 6px;
+  border-radius: 50%;
+}
+
+i:hover {
+  background-color: #dd5f5f;
+  color: white;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.success-button:hover {
+  background-color: rgb(45, 204, 130);
+}
+
+/* Pagination */
+.pagination  {
+  align-items: center;
+}
+.page-item:first-child .page-link{
+  border: none;
+  outline: none;
+}
+
+.page-item:last-child .page-link{
+  border: none;
+  outline: none;
+}
+
+.page-number .page-link {
+  border-radius: 5px;
+  color: black;
+  padding: 1.5px 8px;
+  border: 1px solid black;
+}
+
+.page-number .page-link:hover {
+  color: white;
+  background-color: var(--color-bg-1);
+}
+
+.pagination .active .page-link {
+  color: white;
+  background-color: var(--color-bg-1);
+}

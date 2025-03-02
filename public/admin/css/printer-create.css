@@ -1,0 +1,44 @@
+.inner-power {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-power .form-group-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inner-button {
+  border-radius: 20px;
+  background: #BF989A;
+  border: none;
+  padding: 10px;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.inner-wrap-check {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.button-add {
+  color: white;
+  font-weight: 500;
+  background-color: #B02A37;
+  border-radius: 25px;
+  padding: 6px 50px;
+  margin-top: 20px;
+}
+
+.button-add:hover {
+  background-color: var(--color-bg-1);
+  color: white;
+}
+

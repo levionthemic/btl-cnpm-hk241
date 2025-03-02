@@ -1,0 +1,21 @@
+h2 {
+  margin-left: 20px;
+  color: var(--color-bg-1);
+}
+
+.button {
+  background-color: var(--color-bg-1);
+  border-radius: 20px;
+  font-weight: 500;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+label {
+  font-weight: 500;
+}

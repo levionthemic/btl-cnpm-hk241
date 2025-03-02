@@ -1,0 +1,84 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/user-edit.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container-fluid
+    .row.my-4 
+      .col-12
+        h2 #{pageTitle}
+
+    form(
+      action=`${prefixAdmin}/user/edit/${userDetail._id}?_method=PATCH`
+      method="POST"
+    )
+      .row.justify-content-evenly
+        .col-5
+          div(class="form-group my-3")
+            label(for="fullname") Họ tên 
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="fullname"
+              name="fullname"
+              value=userDetail.fullname
+            )
+          div(class="form-group my-3")
+            label(for="username") Tên tài khoản
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="username"
+              name="username"
+              value=userDetail.username
+            )
+          div(class="form-group my-3")
+            label(for="password") Mật khẩu
+            input(
+              type="password"
+              class="form-control mt-1"
+              id="password"
+              name="password"
+              value=userDetail.password
+            )
+          div(class="form-group my-3")
+            label(for="email") MSSV
+            input(
+              type="text"
+              class="form-control mt-1"
+              id="studentId"
+              name="studentId"
+              value=userDetail.studentId
+            )
+        .col-5
+          div(class="form-group my-3")
+            label(for="birthday") Ngày sinh
+            input(
+              type="date"
+              class="form-control mt-1"
+              id="birthday"
+              name="birthday"
+              value=userDetail.birthday
+            )
+          div(class="form-group my-3")
+            label(for="printPage") Số lượng in còn lại
+            input(
+              type="number"
+              class="form-control mt-1"
+              id="printPage"
+              name="printPage"
+              value=userDetail.printPage
+            )
+          div(class="form-group my-3")
+            .row.justify-content-center
+              .col-6.d-flex.justify-content-center
+                button(
+                  type="submit"
+                  class="btn btn-danger w-75 button"
+                ) Cập nhật
+          

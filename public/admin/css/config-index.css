@@ -1,0 +1,21 @@
+.inner-button-config {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.btn-update-config {
+  background-color: var(--color-bg-1);
+  color: white;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 6px 30px;
+  transition: transform 0.3s ease-in-out;
+}
+.btn-update-config:hover {
+  background-color: var(--color-bg-1);
+  color: white;
+  
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}

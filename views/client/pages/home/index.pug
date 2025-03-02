@@ -1,0 +1,110 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+    link(rel="stylesheet", href="/client/css/home-index.css")
+  
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .home-index
+    .container  
+      .row 
+        .col-12 
+          .inner-banner   
+            img(src="/client/images/banner.jfif")
+          
+      .row
+        .col-12 
+          .inner-category 
+            .inner-title
+              h3 DANH MỤC SẢN PHẨM 
+            .inner-content 
+              .inner-item 
+                .inner-image
+                  img(src="/client/images/home-category-icon.png" alt="")
+                span Cung cấp dịch vụ hỗ trợ in ấn 
+              .inner-item 
+                .inner-image
+                  img(src="/client/images/home-category-icon.png" alt="")
+                span Giấy
+      
+      .row 
+        .col-12 
+          .inner-popular 
+            .inner-title 
+              h2 ẤN PHẨM PHỔ BIẾN 
+            .inner-list 
+              .inner-item 
+                .inner-image
+                  img(src="https://s3-alpha-sig.figma.com/img/cf12/0d66/bf0388c0823d0d67722cc72a9c3dfa41?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cwYDiu3ch4vvtCC7crPQ0Nqohk3yOIXU00uakNw73J2lAE66GKTK6LiJue3-A2f079~V2~~rkpBaTPjEX1vkNTaakRwmdav7SSvx4zOqGGmP2MGBhqc5mArUENPYi6n7-DQ1L0MoKm~-JFQttpK6X6K2QB5L7Lqzw6aivwrafTOz-AnkybppkxF~BsVkHertCYbdo9zXLPAsz5luJtQ5cD4sYzmr2MvKdYv-gQ1dtwEGAX-xXlaMh62~pz3OEwmwhWE13lCHPGgl521qrn5kHc36Edvu0vWjEYVBg5O84nlZuOGCqc8-LGgw0eQdR-tdCa~gL0dBEOhPZgCGWNe8uA__" alt="")
+                span Poster chất liệu PP
+              .inner-item 
+                .inner-image
+                  img(src="https://s3-alpha-sig.figma.com/img/edad/985e/6825b8304f3e87d85dbd31ebb0af3ba6?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LyIeeVEMzEOHb9WS8NvxX1BNt6T22ildfiOmub2lcuyLX1IHB~DW-VNT9VojWYcVm0a8eISjdI377wWw0PkxvnvnbW0MG-1Tko8Djo~gLxzBLuaplCKONJ9ZFLBLN1AhRdqMOzl0ql2JT7cvq7mrNo0H5Mo-lRqv1ulbTVnsO~ZafEyKE6pFdx4FwV1eIXy-JP9cfDQvcrJfeVJ1IOQsoZbTBn5eM-H64j4iixAm1eTMFEybDTqy~dCpnCY74V~n1IvThTRpMTQWwfTQRLWvht7NtaAgX69PNJUKKHxFVNDBCImDa6dIXU8YOMoK2pzWpUoZ2WS4u89l43oUr25RRg__" alt="")
+                span Decal khối lớn
+              .inner-item 
+                .inner-image
+                  img(src="https://s3-alpha-sig.figma.com/img/48d1/3ae6/f924a45ae7e96fabf19e888205a96969?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EWUL8mJKidNMo5YEooFt-gWmnLwZbPbjQFmPx9CzuFnd4WAsH3KufwYMr3Z8tWDjHkiqhmgR9z3H51e120IAC0XcKwGeWblfwjBMFq3UZgdZESkFedXFQ0FFc06pNAPwgEolDaqD0MNtWKnuW2yfBJAHQ0Fz2rFaHYITxEg6Lgwo7SLDM3Y-YvY7IH2jVUfQzxU7scIjK9lG7pyeEhPybJywJfnhgsWIwDK1bqHKYLpjdTd~q~T6LXVpJvvodGhn3om4--mkBzq6lBXR~5gDPfFMws6e65F5-ZNS0VhIcHF9W~tg~elPDciDncBwRNADYef-2RRUcf6LWBAC4X1MMQ__" alt="")
+                span Danh thiếp chuẩn
+              .inner-item 
+                .inner-image
+                  img(src="https://s3-alpha-sig.figma.com/img/b47d/475e/6d6d0ec1a34bae6dc6400d2315c4511e?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HvExvM0UBW-YUzNVnlK2DpRu37mxdJzRjdGtnLVjD2peNjSsma4uDwBxgOEOvCOPJHhTkTkkIM7R18dOoXOhf2Q-eVIho7~lKKQzpA46qIhFd0fX4R6Y7X-7abClnneTTrJC~icbjbNAK-pXJI7L-tj6tnlwnA-kC8xG0L1qJk3VIijpBXzYSaOF75cVDTaH35cnjEvIzfk2TXxw~ckTYRxKSGp9GifYolHt0juO-qoCzdxkerRT7X3WX-RDhxFTJcXQ8k007~408Q4~DJYqqjkBl~GKlY47GutaCfCdO-9088T6QEstD6~z0PI5a7Y7oNBHaT9xXu~ISbEjQEQp9g__" alt="")
+                span Catalogue giá rẻ
+              .inner-item 
+                .inner-image
+                  img(src="https://s3-alpha-sig.figma.com/img/b47d/475e/6d6d0ec1a34bae6dc6400d2315c4511e?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HvExvM0UBW-YUzNVnlK2DpRu37mxdJzRjdGtnLVjD2peNjSsma4uDwBxgOEOvCOPJHhTkTkkIM7R18dOoXOhf2Q-eVIho7~lKKQzpA46qIhFd0fX4R6Y7X-7abClnneTTrJC~icbjbNAK-pXJI7L-tj6tnlwnA-kC8xG0L1qJk3VIijpBXzYSaOF75cVDTaH35cnjEvIzfk2TXxw~ckTYRxKSGp9GifYolHt0juO-qoCzdxkerRT7X3WX-RDhxFTJcXQ8k007~408Q4~DJYqqjkBl~GKlY47GutaCfCdO-9088T6QEstD6~z0PI5a7Y7oNBHaT9xXu~ISbEjQEQp9g__" alt="")
+                span Tờ rơi giấy A4
+              .inner-item 
+                .inner-image
+                  img(src="/client/images/more.svg" alt="")
+                span Xem thêm
+
+      .row 
+        .col-12 
+          .inner-about 
+            .inner-image 
+              img(src="/client/images/home-about-image.jfif")
+            .inner-content 
+              .inner-title 
+                h1 VỀ CHÚNG TÔI
+              .inner-desc
+                p In ấn phẩm là dịch vụ quan trọng trong các hoạt động quảng cáo, truyền thông và thương hiệu của doanh nghiệp. Các sản phẩm in ấn phòng phẩm bao gồm tài liệu văn phòng, danh thiếp, bao thư, tờ rơi, tập san và lịch, là công cụ hữu ích giúp công ty xây dựng hình ảnh chuyên nghiệp. Việc thiết kế và in ấn phòng phẩm chất lượng không chỉ tạo ấn tượng tốt với khách hàng mà còn tăng tính nhất quán cho thương hiệu, tạo cảm giác tin cậy và khẳng định vị thế của công ty trong lòng đối tác và khách hàng.
+
+      .row 
+        .col-12 
+          .inner-comment  
+            .inner-title 
+              h1 ĐÁNH GIÁ CỦA KHÁCH HÀNG
+            .inner-item
+              .inner-avatar 
+                img(src="https://s3-alpha-sig.figma.com/img/3d92/b92e/22f3516cb1194ecabb50de10a1b5e47d?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ksDVNUbkE08plYPWuDKZL70D5iXOeSwGWrGcbgbsN5GZEhL7w3Syz~VCp7eoB0aHgjCUwkadNiriuy76-XPYMts4fE7uNh0F9WguZcSxucQIsWIOVekC4MF445ut0dCbb9jC-ZaDJnYQ1WTW01dL-56IgY-EYHiUtHORmycmoC4VKPkbG7voqvNnvIJMBZ0JoYwq94LNR5gXJyOLndDdAEluvWBXRkhsCb5I~0c6vsdx41naItGpnUssdOEwiqzvEP8-UjHMeqqNaG33sG~b-CUu4--0j~k~YqHCn3iBsQgVJav~~huQqHO3jXtyhLSjERxIp00UKyAoegcP3A1t4g__" alt="")
+              .inner-info
+                .inner-user 
+                  span Nguyễn Tất Đạt
+                .inner-desc
+                  p "Dịch vụ in ấn ở đây rất chuyên nghiệp! Mình đã đặt in tờ rơi và card visit cho công ty, màu sắc rất đẹp và đúng với mẫu thiết kế. Giao hàng nhanh chóng, nhân viên tư vấn rất nhiệt tình và thân thiện. Chắc chắn sẽ quay lại hợp tác lần sau."
+            .inner-item
+              .inner-avatar 
+                img(src="https://s3-alpha-sig.figma.com/img/98cb/d390/fea48568d7df68c5d020bcaa3fba7c32?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=j4lKaFPdIOwEdzj~wRzjVgttvDIIpasL136zfaXeljnYtfEVOhTDb9aOnW9kYwfhE85FD1TGHVwrsUycewbDXJ1hGdyqh66IgjQT8tF1mWAFSqqJoNN3xmWOtNprP8BPwTFnKKUuhPj0pZZZO~vdMRzW1kDyLADSASv~YMT7Ltdfd~Rz0479bGkWY~6hsKmzk6quIEDIRZuJJL6arV9awcfqVemPqkemeU-y~E0rlXOffCK4~85AqRS9zyUQFZkvUJ65PTG7MMxNxuN1DtkMlOoViGhvQAtlCPgP1D4GPSHRM8HUvnp4ZmCWBZI7DRd9JwE0yUFBVltWa9lLypJywA__" alt="")
+              .inner-info
+                .inner-user 
+                  span Hồ Trần Ngọc Liêm
+                .inner-desc
+                  p "Mình đã đặt in áo thun đồng phục cho đội nhóm, chất lượng vải tốt, màu sắc in rõ nét. Đặc biệt là giá cả rất hợp lý so với những nơi khác. Mình rất hài lòng với dịch vụ và sự chuyên nghiệp của các bạn."
+            .inner-item
+              .inner-avatar 
+                img(src="https://s3-alpha-sig.figma.com/img/d7b1/85e9/7a86ed65fe55b1c73bd67deeb76732cf?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pz-Hqc0IcRkbljd7FlcogxJstoIvPLXUGTbRROCvvzI7V2x6cxC-MU~7XJGx1K-rxn5QtzX6vtkAnEanR0F0bKx8NpxIR28DTMu~QbRSBIsDBMGW3kbEp7UPoi7Y9KeekUhD8pjfV7peG5neMwnkpn4ZQ-MTvnzO9Sl-1G7cOYGPz5eFHDk0wReVMSBTAtxZ0YmvJ7IHwPvSl2uIM7chomzxLbeqxz0tLOJ9qYF9Iyv09OG-HjgVlsHEuv9b8ZYm4ZlY7k2MOqnNr4-4QN67C4z95Qihac2uXHyvBuyJihO~gwBZ12r0CI1lAylEzo5JcgitsBHK403hQopQsomk-g__" alt="")
+              .inner-info
+                .inner-user 
+                  span Nguyễn Hữu Tuấn
+                .inner-desc
+                  p "Dịch vụ in ấn của bạn thật sự tốt, chất lượng in ấn cao cấp, giá cả cạnh tranh và thời gian hoàn thành đơn hàng nhanh chóng. Đội ngũ hỗ trợ rất tận tâm, giúp mình chọn mẫu thiết kế phù hợp và đưa ra giải pháp in tốt nhất."
+            .inner-other  
+              span XEM THÊM
+
+
+
+
+      

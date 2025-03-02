@@ -1,0 +1,98 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/order-index.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container-fluid 
+    .row.mb-3 
+      ul(class="nav nav-underline mb-3")
+        li(class="nav-item")
+          a(class="nav-link active" href=`#`) Tất cả đơn đặt in
+        li(class="nav-item")
+          a(class="nav-link" href=`#`) Đang in
+        li(class="nav-item")
+          a(class="nav-link" href=`#`) Đã in
+        li(class="nav-item")
+          a(class="nav-link" href=`#`) Thất bại
+
+    .row.my-2  
+      .col-12 
+        .inner-actions 
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              | Mã máy in
+            </button>
+            <ul class="dropdown-menu printer-id-dropdown-menu">
+              <li><a class="dropdown-item" href="#">Tất cả</a></li>
+              each item in printerIdDropdownList
+                <li><a class="dropdown-item" href="#">#{item}</a></li>
+            </ul>
+          </div>
+
+
+    
+    .row-my-5
+      .col-12 
+        table.table.table-hover.align-middle.table-striped
+          thead 
+            tr.text-center 
+              th STT
+              th Mã
+              th Ngày tạo
+              th Người dùng
+              th Khố in
+              th Mã máy in
+              th Trạng thái
+              th Hành động
+          tbody.table-group-divider
+            each request, index in requests 
+              tr.text-center 
+                td #{(page - 1) * 20 + index + 1}
+                td #{request.requestId}
+                td #{request.createdAt.toLocaleString("vi-VN")}
+                td #{users[index] ? users[index].fullname : "Không xác định"}
+                td #{printPageSize[index]}
+                td #{requests[index].printerId}
+                td #{request.result == "printing" ? "Đang in" : request.result == "printed" ? "Đã in" : "Thất bại"}
+                td
+                  - if (request.result == "printing")
+                    .inner-note
+                      form(
+                        method="POST"
+                        action=`${prefixAdmin}/order/success/${request._id}?_method=PATCH`
+                      )
+                        button(type="submit" class="btn p-0")
+                          <i class="fa-solid fa-check success-button"></i>
+                      form(
+                        method="POST"
+                        action=`${prefixAdmin}/order/fail/${request._id}?_method=PATCH`
+                      )
+                        button(type="submit" class="btn p-0")
+                          <i class="fa-solid fa-xmark fail-button"></i>
+            
+                                
+    .row.my-3.justify-content-center.text-center
+      .col-5.d-flex.justify-content-center 
+        ul.pagination.gap-3
+          li.page-item
+            a.page-link(href=`#`)
+              span 
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M15 18L9 12L15 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+          each page, index in [...Array(totalPages)]
+            li.page-item.page-number
+              a.page-link(href=`#`) #{index + 1}
+          li.page-item
+            a.page-link(href=`#`)
+              span
+                svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M9 18L15 12L9 6" stroke="#747474" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")    
+  script(src="/admin/js/order-index.js") 
+  script. 
+    const totalPages = "#{totalPages}"  
+    const prefixAdmin = "#{prefixAdmin}"

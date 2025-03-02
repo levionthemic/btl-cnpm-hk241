@@ -1,0 +1,157 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/client/css/user-signup.css")
+
+block script 
+  script(src="/client/js/user-signup.js") 
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container
+    .row.justify-content-center 
+      .col-8
+        .inner-logo 
+          img(src="/client/images/logoBK.png" alt="")
+    
+        .inner-signup   
+          .inner-title 
+            h1 ĐĂNG KÝ
+          form(
+            action="/user/signup"
+            method="POST"
+            enctype="multipart/form-data"
+          ) 
+              div(class="form-group input-group")
+                label(for="username") 
+                  img(src="/client/images/user.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="text"
+                    id="username"
+                    class="form-control"
+                    placeholder="Nhập username"
+                    name="username"
+                    required
+                  )
+                  label(for="username") Nhập username
+              div(class="form-group input-group")
+                label(for="birthday") 
+                  img(src="/client/images/signup-birthday-icon.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="date"
+                    id="birthday"
+                    class="form-control"
+                    placeholder="Ngày sinh"
+                    name="birthday"
+                  )
+                  label(for="birthday") Ngày sinh
+              div(class="form-group input-group")
+                label(for="address") 
+                  img(src="/client/images/signup-location-icon.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="text"
+                    id="address"
+                    class="form-control"
+                    placeholder="Địa chỉ"
+                    name="address"
+                  )
+                  label(for="address") Địa chỉ
+              div(class="form-group input-group")
+                label(for="phone") 
+                  img(src="/client/images/signup-phone-icon.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="tel"
+                    id="phone"
+                    class="form-control"
+                    placeholder="Số điện thoại"
+                    name="phone"
+                    required
+                  )
+                  label(for="phone") Số điện thoại
+              div(class="form-group input-group")
+                label(for="password") 
+                  img(src="/client/images/lock.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Nhập mật khẩu"
+                    name="password"
+                    required
+                  )
+                  label(for="password") Nhập mật khẩu
+              div(class="form-group input-group")
+                label(for="confirmPassword") 
+                  img(src="/client/images/lock.svg", alt="")
+                div(class="form-floating")
+                  input(
+                    type="password"
+                    id="confirmPassword"
+                    class="form-control"
+                    placeholder="Nhập lại mật khẩu"
+                    name="confirmPassword"
+                    required
+                  )
+                  label(for="password") Nhập lại mật khẩu
+              div(class="form-group input-group")
+                label(for="image-upload")
+                  img(src="/client/images/signup-image-icon.svg" alt="")
+                div(
+                  upload-image
+                )
+                  input(
+                    type="file"
+                    class="form-control-file"
+                    id="avatar"
+                    name="avatar"
+                    accept="image/*"
+                    upload-image-input 
+                    placeholder="Vui lòng thêm hình ảnh"
+                  )
+                  label(for="avatar") Vui lòng chọn hình ảnh
+              img(
+                src=""
+                upload-image-preview
+                class="image-preview"
+              )
+              
+              div(class="form-check")
+                input(
+                  type="checkbox"
+                  class="form-check-input"
+                  id="agreement"
+                  required
+                )
+                label(
+                  for="agreement"
+                  class="form-check-label"
+                ) Đồng ý điều khoản
+              div(class="form-group")
+                button(
+                  type="submit"
+                  class="button"
+                ) Đăng ký
+
+          .inner-login.mt-4
+            | Trở lại trang
+            a(href="/user/login") Đăng nhập
+
+
+
+
+
+
+
+
+
+
+
+

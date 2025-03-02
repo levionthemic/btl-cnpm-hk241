@@ -1,0 +1,192 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block style 
+  link(rel="stylesheet", href="/admin/css/printer-create.css")
+
+block main 
+  +alert-success(5000)
+  +alert-error(5000)
+
+  .container-fluid 
+    .row.my-4  
+      .col-12
+        h2 Cập nhật máy in
+
+    form(
+      method="POST"
+      action=`${prefixAdmin}/printer/edit/${printer._id}?_method=PATCH`
+      enctype="multipart/form-data"
+    )
+      .row
+        .col-6
+          div(class="form-group mb-3")
+            label(for="name") Tên máy in
+            input(
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              value=printer.name
+              required
+            )
+          div(class="form-group mb-3")
+            label(for="description") Mô tả
+            textarea(
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              rows="5"
+              required
+            ) #{printer.description}
+          div(class="form-group mb-3")
+            label(for="description") Vị trí máy in
+            select(name="location" class="form-select")
+              option(value="" selected disabled) -- Chọn vị trí --
+              option(value="H1-621" selected=(printer.location == "H1-621")) H1-621
+              option(value="H2-621" selected=(printer.location == "H2-621")) H2-621
+              option(value="H3-621" selected=(printer.location == "H3-621")) H3-621
+              option(value="H6-621" selected=(printer.location == "H6-621")) H6-621
+          div(class="form-group mb-3")
+            label Lượng giấy còn lại
+            .row.justify-content-between
+              .col-2 
+                div(class="form-floating")
+                  input(
+                    type="number"
+                    id="A0"
+                    class="form-control"
+                    placeholder="Khổ A0"
+                    name="A0"
+                    min="0"
+                    value=printer.printPapers[0].paperQuantity
+                    required
+                  )
+                  label(for="A0") Khổ A0
+              .col-2 
+                div(class="form-floating")
+                  input(
+                    type="number"
+                    id="A1"
+                    class="form-control"
+                    placeholder="Khổ A1"
+                    name="A1"
+                    min="0"
+                    value=printer.printPapers[1].paperQuantity
+                    required
+                  )
+                  label(for="A1") Khổ A1
+              .col-2 
+                div(class="form-floating")
+                  input(
+                    type="number"
+                    id="A2"
+                    class="form-control"
+                    placeholder="Khổ A2"
+                    name="A2"
+                    min="0"
+                    value=printer.printPapers[2].paperQuantity
+                    required
+                  )
+                  label(for="A2") Khổ A2
+              .col-2 
+                div(class="form-floating")
+                  input(
+                    type="number"
+                    id="A3"
+                    class="form-control"
+                    placeholder="Khổ A3"
+                    name="A3"
+                    min="0"
+                    value=printer.printPapers[3].paperQuantity
+                    required
+                  )
+                  label(for="A3") Khổ A3
+              .col-2 
+                div(class="form-floating")
+                  input(
+                    type="number"
+                    id="A4"
+                    class="form-control"
+                    placeholder="Khổ A4"
+                    name="A4"
+                    min="0"
+                    value=printer.printPapers[4].paperQuantity
+                    required
+                  )
+                  label(for="A4") Khổ A4
+        .col-6
+          div(class="form-group mb-3" upload-image)
+            label(for="thumbnail") Ảnh sản phẩm
+            input(
+              type="file"
+              class="form-control-file form-control"
+              id="thumbnail"
+              name="thumbnail"
+              accept="image/*"
+              upload-image-input 
+              placeholder="Vui lòng thêm hình ảnh"
+            )
+            img(
+              src=printer.thumbnail || ""
+              upload-image-preview
+              class="image-preview"
+            )
+          div(class="form-group mb-3")
+            label(for="status") Trạng thái
+            .inner-wrap-check
+              .form-group-item
+                input(
+                  type="radio"
+                  class="btn-check"
+                  id="standby"
+                  value="standby"
+                  name="status"
+                  checked=(printer.status == "standby" ? true : false)
+                  required
+                ) 
+                label(for="standby" class="btn btn-danger inner-button") Đang trống
+              .form-group-item
+                input(
+                  type="radio"
+                  class="btn-check"
+                  id="using"
+                  value="using"
+                  name="status"
+                  checked=(printer.status == "using" ? true : false)
+                  required
+                ) 
+                label(for="using" class="btn btn-danger inner-button") Đang sử dụng
+          div(class="form-group")
+            label(for="power") Hoạt động
+            .inner-wrap-check
+              .form-group-item
+                input(
+                  type="radio"
+                  class="btn-check"
+                  id="on"
+                  value="on"
+                  name="power"
+                  checked=(printer.power == "on" ? true : false)
+                  required
+                ) 
+                label(for="on" class="btn btn-danger inner-button") ON
+              .form-group-item
+                input(
+                  type="radio"
+                  class="btn-check"
+                  id="off"
+                  value="off"
+                  name="power"
+                  checked=(printer.power == "off" ? true : false)
+                  required
+                ) 
+                label(for="off" class="btn btn-danger inner-button") OFF
+          div(class="form-group d-flex justify-content-center")
+            button(
+              type="submit"
+              class="btn button-add"
+            ) Cập nhật
+
+

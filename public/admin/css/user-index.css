@@ -1,0 +1,96 @@
+.inner-title {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.inner-title button {
+  background-color: var(--color-bg-1);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.inner-inform {
+  display: flex;
+  align-items: center;
+}
+
+.inner-inform .inner-inform-item {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid black;
+  gap: 5px;
+}
+
+.inner-inform .inner-inform-item:last-child {
+  border-right: none;
+}
+
+.inner-inform .inner-inform-item .inner-desc {
+  color: var(--color-bg-1);
+}
+
+.inner-actions {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.inner-actions .filter-button {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #ddd;
+}
+
+.inner-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inner-note img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.inner-note img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Pagination */
+.pagination  {
+  align-items: center;
+}
+.page-item:first-child .page-link{
+  border: none;
+  outline: none;
+}
+
+.page-item:last-child .page-link{
+  border: none;
+  outline: none;
+}
+
+.page-number .page-link {
+  border-radius: 5px;
+  color: black;
+  padding: 1.5px 8px;
+  border: 1px solid black;
+}
+
+.page-number .page-link:hover {
+  color: white;
+  background-color: var(--color-bg-1);
+}
+
+.pagination .active .page-link {
+  color: white;
+  background-color: var(--color-bg-1);
+}
